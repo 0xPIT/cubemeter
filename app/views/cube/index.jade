@@ -1,0 +1,73 @@
+extends ../layouts/default
+
+block main
+  .container
+    .row(style="margin-bottom: 1em;")
+      .col-md-2
+        h1(style="margin: 0")= title
+      .col-md-6
+        .btn-group.btn-group-sm.pull-right(data-toggle='buttons')
+          button(type='button',data-step='raw').btn.btn-default raw
+          button(type='button',data-step='6e4').btn.btn-default.btn-primary 1m
+          button(type='button',data-step='3e5').btn.btn-default 5m
+          button(type='button',data-step='36e5').btn.btn-default 1h
+          button(type='button',data-step='864e5').btn.btn-default 1d
+      .col-md-4
+        div#reportrange.btn.pull-right(style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc")
+          i.glyphicon.glyphicon-calendar
+          | &nbsp;
+          span
+            | &nbsp;
+          | &nbsp;
+          b.caret
+
+block content
+  .row(style='padding-bottom: 1em;')
+    .col-md-6
+      .loading
+        .spinner
+          .mask
+            .maskedCircle
+      #chart-1(style=' height: 250px;')
+    .col-md-6
+      .loading
+        .spinner
+          .mask
+            .maskedCircle
+      #chart-2(style=' height: 250px;')
+  .row(style='padding-bottom: 1em;')
+    .col-md-6
+      .loading
+        .spinner
+          .mask
+            .maskedCircle
+      #chart-3(style=' height: 250px;')
+    .col-md-6
+      #chart-4(style=' height: 250px;')
+        span#debug
+
+  //-
+    - if(events.length)
+      table.table.table-condensed
+        - each event in events
+          tr
+            - var D = new Date(event.time); var d = D.toLocaleDateString(); var t = D.toLocaleTimeString();
+            - var temp = parseFloat(Math.round(event.data.temperature * 100) / 100).toFixed(2)
+            td= d
+            td= t
+            td= temp
+              |°C
+            td.hidden-xs= event.data.pressure
+              | hPa
+            td.hidden-xs= event.data.humidity
+              | %
+            td.hidden-xs= event.data.cloud.coverage
+              | %
+            td
+              - each condition in event.data.conditions
+                - var icon = 'http://openweathermap.org/img/w/' + condition.icon + '.png'
+                img(src=icon, height=24)
+    - else
+      p.muted No Events.
+
+  script(src='/js/cube.js')

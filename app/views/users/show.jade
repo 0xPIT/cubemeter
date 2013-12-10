@@ -1,0 +1,8 @@
+extends ../layouts/default
+    
+block main
+  - var name = user.name ? user.name : user.username
+  h1= name
+  - var dump = JSON.stringify(user);
+  pre
+    = dump

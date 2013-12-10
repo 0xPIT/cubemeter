@@ -1,0 +1,40 @@
+extends ../layouts/default
+
+//- FIXME add mixin for form fields with error checking
+
+block main
+  h1= title
+
+block content
+  form#signup-form(role='form', action='/users', method='post')
+    input(type='hidden', name='_csrf', value='#{csrf_token}')
+
+    - var errStyle = '', errMsg = ''; if (errors && errors.name) errStyle = 'has-error', errMsg = errors.name.message;
+    .form-group(class='' + errStyle)
+      label(for='name') Full name
+      input#name.form-control(type='text', name='name', placeholder='Full name', value=user.name)
+      .help-block= errMsg
+
+    - var errStyle = '', errMsg = ''; if (errors && errors.email) errStyle = 'has-error', errMsg = errors.email.message;
+    .form-group(class='' + errStyle)
+      label(for='email') Email
+      input#email.form-control(type='text', name='email', placeholder='Email', value=user.email)
+      .help-block= errMsg
+
+    - var errStyle = '', errMsg = ''; if (errors && errors.username) errStyle = 'has-error', errMsg = errors.username.message;
+    .form-group(class='' + errStyle)
+      label(for='username') Username
+      input#username.form-control(type='text', name='username', placeholder='Username', value=user.username)
+      .help-block= errMsg
+
+    - var errStyle = '', errMsg = ''; if (errors && errors.hashed_password) errStyle = 'has-error', errMsg = errors.hashed_password.message;
+    .form-group(class='' + errStyle)
+      label(for='password') Password
+      input#password.form-control(type='password', name='password', placeholder='Password')
+      .help-block= errMsg
+
+    .form-actions
+      button.btn.btn-primary(type='submit') Sign up
+      &nbsp;
+      | or&nbsp;
+      a.show-login(href='/login') login
