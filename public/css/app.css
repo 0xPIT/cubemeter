@@ -24,6 +24,11 @@ img.auth-provider {
 	opacity: 0.4;
 }
 
+.reportControl {
+  float:left;
+  margin: 0 10px 10px 0;
+}
+
 /* CSS Only Spinner Animation */
 /*
 <div class="loading">

@@ -3,23 +3,21 @@ extends ../layouts/default
 block main
   .container
     .row(style="margin-bottom: 1em;")
-      .col-md-2
-        h1(style="margin: 0")= title
-      .col-md-6
-        .btn-group.btn-group-sm.pull-right(data-toggle='buttons')
-          button(type='button',data-step='raw').btn.btn-default raw
-          button(type='button',data-step='6e4').btn.btn-default.btn-primary 1m
-          button(type='button',data-step='3e5').btn.btn-default 5m
-          button(type='button',data-step='36e5').btn.btn-default 1h
-          button(type='button',data-step='864e5').btn.btn-default 1d
-      .col-md-4
-        div#reportrange.btn.pull-right(style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc")
+      .reportControl.pull-right
+        div#reportrange.btn.pull-right(style="background: #fff; cursor: pointer; padding: 4px 10px; border: 1px solid #ccc")
           i.glyphicon.glyphicon-calendar
           | &nbsp;
           span
             | &nbsp;
           | &nbsp;
           b.caret
+      .reportControl.pull-right
+        .btn-group.btn-group-sm.pull-right(data-toggle='buttons')
+          button(type='button',data-step='raw').btn.btn-default raw
+          button(type='button',data-step='6e4').btn.btn-default.btn-primary 1m
+          button(type='button',data-step='3e5').btn.btn-default 5m
+          button(type='button',data-step='36e5').btn.btn-default 1h
+          button(type='button',data-step='864e5').btn.btn-default 1d
 
 block content
   .row(style='padding-bottom: 1em;')
