@@ -12,7 +12,7 @@ Designed to collect periodic signals via a handware interrupt, I use CubeMeter t
 collect data sent in the form of 1000 pulses per kW/h from my Eltako DSZ12D Smart Meter.
 Most power meters (Electriticy, Heating, Gas, etc.) work the same way, you can also use 
 simple reflective optocpuplers to collect data from a counter using a rotating disc or 
-even detect the red mark on a mechanical numerical counter.
+even detect the red mark on a mechanical numerical counter. You could even use [this wireless meter monitor](http://perso.aquilenet.fr/~sven337/english/2014/03/18/Gas-meter-monitoring-wireless-battery-arduino.html).
 
 ### Practical
 
