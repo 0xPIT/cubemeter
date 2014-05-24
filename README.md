@@ -14,6 +14,8 @@ Most power meters (Electriticy, Heating, Gas, etc.) work the same way, you can a
 simple reflective optocpuplers to collect data from a counter using a rotating disc or 
 even detect the red mark on a mechanical numerical counter. You could even use [this wireless meter monitor](http://perso.aquilenet.fr/~sven337/english/2014/03/18/Gas-meter-monitoring-wireless-battery-arduino.html).
 
+I gave a [talk](https://www.youtube.com/watch?v=eqKBCMSgHOA) at [MNUG](http://www.mnug.de/) about this project.
+
 ### Practical
 
 I run the whole blob on my Raspberry PI, using an older version of MongoDB and 
