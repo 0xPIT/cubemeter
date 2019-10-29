@@ -45,7 +45,7 @@
     "onoff": "0.2.*",
     "cube": "0.2.*",
     "dateformat": "latest",
-    "moment": "2.1.*",
+    "moment": "2.24.*",
     "async": "0.2.*"
   },
   "devDependencies": {
